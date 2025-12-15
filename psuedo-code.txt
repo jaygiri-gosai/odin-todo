@@ -1,0 +1,169 @@
+# Create package.json (npm init)
+  - Configure scripts command
+  - Install dependencies
+    - css-loader
+    - html-loader
+    - html-webpack-plugin
+    - style-loader
+    - webpack
+    - webpack-cli
+    - webpack-dev-server
+    - webpack-merge
+    - date-fns
+
+
+# Configure Webpack
+  - Create a webpack file for common or to merge.
+  - Create a webpack file for dev mode (copy from resturant project)
+  - Create a webpack file for production mode (copy from resturant project)
+
+# Create folder structure
+  - src
+    - assets
+      - css
+      - images
+    - scripts
+      - index.js (entry point)
+      - module files
+    - html files
+      - index.html (main)
+
+# Create a localStorage module
+  - Create a save method with 2 arguments: key & value
+    - The method should create/set Item in localStorage of the browser
+  - Create a get method to fetch the value of the item from browser's localStorage
+    - The method should accept 1 argument i.e. item key
+  - Create a delete method to delete the item using its key
+  - Export save, get & delete method
+
+# Create a project module
+- Delcare a module array varaible to hold all projects objects. 
+- Add a default project object in a module array.
+- Create a factory function to create a project object/item. - Internal
+  - The function should accept its required properties mentioned below as argument.
+  - The project object should have below mentioned properties
+    - id
+    - name - required
+    - color - optional
+    - Arry of todo id 
+  - Return the project object
+
+- Create a function to add projects - External/Exposed
+- The function should take the properties required to create project using the factory function
+    - Call the factory function to create a project object with arguments passed. 
+    - Receive the project object in return. 
+    - Push the object into the module array varaiable
+
+- Create a function to update project - External/Exposed
+    - The should take a project id as an argument 
+    - Find the project item from the module array using the id 
+    - Update the details of the object 
+    - return the updated object
+
+  - Create a function to readall projects - External/Exposed
+    - The function should return module array containing all project objects
+
+  - Create a function to delete project - External/Exposed
+    - The function should accept id as an argument
+      - Find the project the module array using the id 
+      - Check if any todo exists 
+        - if exists 
+          - Move all the todo ids to the default project id
+        - else 
+          - Delete the project object from module array
+
+  - Create a function addProjectTodos - External/Exposed
+    - The function should accept id of project and id of to do
+      - Add the todo item in the newly found project id element
+
+    - Create a function deleteProjectTodos - External/Exposed
+    - The function should accept id of project and id of to do
+    - Loop through existing module array to check if todo id exists/binded with any project
+          - if found
+            - Remove the todo item from existing project id
+  - Export the add projects, update projects, readall projects, delete project,addProjectTodos & deleteProjectTodos  methods.
+
+# Create a todo module
+  - Delcare a module array varaible to hold all todo objects / todo items.
+  - Create a factory function to create a todo object/item. - Internal
+    - The function should accept its required properties mentioned below as argument
+    - The todo object should have below mentioned properties
+      - id
+      - title - Required
+      - description
+      - dueDate
+      - priority
+      - notes
+      - status (todo/inprogress/blocked/completed)
+    - Return the todo object
+
+   - Create a function to add todo item - External/Exposed
+    - The function should take the properties required to create an to do item using the factory function
+    - Call the factory function to create a todo object with arguments passed.
+    - Receive the todo object in return.
+    - Push the object into the module array varaiable
+    
+  
+  - Create a function to update todo item - External/Exposed
+    - The should take a todo id as an argument
+    - Find the todo item from the module array using the id
+    - Update the details of the object
+    - return the updated object
+
+  - Create a function to readall todo items - External/Exposed
+    - The function should return module array containing all todo objects
+
+  - Create a function to delete todo item - External/Exposed
+    - The function should accept id as an argument
+    - Find the todo item the module array using the id
+    - Upon successful operation of above step, Delete the todo object from module array
+    
+  - Export the add todo, update todo, readall todo & delete todo methods.
+
+
+# Create an UI module
+- Create a function to build & render the header - Exposed
+- Create a function to build & render projects sidebar - Exposed
+  - The function should accept the projects data in argument
+- Create a function to build & render the todo items - Exposed
+  - The function should accept the selected project & todo data in argument
+- Create a function to build & render the footer - Exposed
+- Export all methods
+
+# Create an App module
+- Import all 3 modules (UI, localStorage, Projects & Todo)
+- On load,
+  - Check if any default project exists in localStorage
+  - if not
+    - Create a default project in localStorage
+
+- Call the renderHeader function to render the header
+
+- Fetch all projects from project
+  If "projects" key exists in LS:
+    - Load it and populate Project module array
+  Else:
+    - Use default Project module state and then save it to LS
+  - Call the render projects method of UI module and pass projects data
+
+ - Event binding for all the CRUD operations DOM for projects
+  - “Add project” submit
+  - “Rename project”
+  - “Delete project”
+  - “Select project”
+  - “Add todo”
+  - “Update todo”
+  - “Delete todo”
+  - For each:
+    - Call the appropriate Project/Todo module methods
+    - Re-render UI
+    - Save updated state to LS 
+
+- Fetch all todos from todo module
+  If "todos" key exists in LS:
+    - Load it and populate todo module array
+  Else:
+    - Use default Project module state and its todos and then save it to LS
+  - Call the render todo method of UI module and pass todo data
+
+  - Event binding for all the CRUD operations DOM for todos
