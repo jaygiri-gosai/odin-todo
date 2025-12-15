@@ -1,77 +1,41 @@
 # odin-todo
 
-📝 My Todo List — A Modular JavaScript Todo Application
+A modular JavaScript Todo List Application built for The Odin Project.  
+This project focuses on clean architecture, separation of concerns, and dynamic UI rendering using vanilla JavaScript.
 
-A fully functional Todo List application built as part of The Odin Project’s JavaScript curriculum.
-This project focuses on clean architecture, modular code design, and separation of concerns using vanilla JavaScript.
+---
 
-The app allows users to:
+## Features
 
-Create and manage multiple projects
+### Project Management
 
-Add, edit, and delete todo items
+- Create multiple projects
+- Each project maintains its own list of todos
 
-Track todos by priority, status, and due date
+### Todo Management
 
-Persist all data using localStorage
+- Add, edit, and delete todos
+- Track priority (High, Medium, Low)
+- Track status (To Do, In Progress, Blocked, Done)
+- Set due dates
 
-Interact with a responsive, dynamically rendered UI
+### Persistent Storage
 
-This project demonstrates core concepts in front-end development such as DOM manipulation, event handling, modular architecture, and clean data flow.
+- All data is saved using localStorage
+- Todo list remains available after page refresh
 
-🚀 Features
-✔ Modular Structure
+### Dynamic UI Rendering
 
-All logic is cleanly separated into modules:
+- Sidebar and todo lists are fully generated using DOM manipulation
+- Modals for adding and editing projects and todos
+- UI logic and application logic are cleanly separated
 
-todos.js — todo creation logic
+---
 
-projects.js — project creation logic
+## Technologies Used
 
-index.js — app controller and state handling
-
-ui.js — rendering layer and DOM management
-
-localStorage.js — persistence and data retrieval
-
-✔ Create, Read, Update, Delete (CRUD)
-
-Add new projects
-
-Add todos inside a project
-
-Edit existing todos
-
-Delete todos and update the project list automatically
-
-✔ Local Storage Persistence
-
-All projects and todos are saved in browser storage so the data remains even after refreshing.
-
-✔ Dynamic UI Rendering
-
-All components (sidebar, modals, todo cards, etc.) are rendered dynamically using vanilla JavaScript.
-
-✔ Date & Priority Support
-
-Todos support:
-
-Due dates (formatted using date-fns)
-
-Priority levels (High, Medium, Low)
-
-Status tracking (To Do, In Progress, Blocked, Done)
-
-🛠️ Technologies Used
-
-JavaScript ES6 Modules
-
-HTML5 + CSS3
-
-date-fns for date formatting
-
-localStorage API for persistence
-
-Webpack (if you’re bundling)
-
-Vanilla DOM Manipulation
+- JavaScript (ES6 Modules)
+- HTML5 and CSS3
+- date-fns for date formatting
+- localStorage API
+- Vanilla DOM Manipulation
