@@ -1,5 +1,3 @@
-import logger from "./logger.js";
-
 // Factory function to create a new project
 const createProject = (name, todos = []) => {
   const id = crypto.randomUUID();

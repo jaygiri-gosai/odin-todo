@@ -1,7 +1,7 @@
 import UI from "./ui.js";
 import { addProject } from "./projects.js";
 import { addToDo } from "./todos.js";
-import { load, save, clear } from "./localStorage.js";
+import { load, save } from "./localStorage.js";
 let projects = {},
   todos = {};
 function init() {
@@ -60,7 +60,7 @@ function appendProject(projectID, todoObj) {
     todoObj.status
   );
   let stored = load("todos");
-  if (todoObj.hasOwnProperty("todoID")) {
+  if (Object.hasOwn(todoObj, "todoID")) {
     const todoIndex = stored.findIndex((todo) => todo.id === todoObj.todoID);
     if (todoIndex !== -1) {
       stored[todoIndex].title = todoObj.title;

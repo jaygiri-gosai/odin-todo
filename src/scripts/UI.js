@@ -1,5 +1,6 @@
 import "../styles/style.css";
-import { format } from "date-fns";
+import { format } from "date-fns/format";
+import { parseISO } from "date-fns/parseISO";
 const UI = {
   // Function to create and render the header
   renderHeader() {
@@ -167,12 +168,17 @@ const UI = {
         titleContainer.appendChild(descP);
 
         const dateP = document.createElement("p");
-        dateP.textContent = `${format(todo.dueDate, "MM/dd/yyyy")}`;
+        if (!todo.dueDate) {
+          dateP.textContent = "";
+        } else {
+          const dateObject = parseISO(todo.dueDate);
+          dateP.textContent = format(dateObject, "MM/dd/yyyy");
+        }
         titleContainer.appendChild(dateP);
 
         const priorityP = document.createElement("p");
         let priorityText = "";
-        console.log(typeof todo.priority);
+
         if (todo.priority === "1") {
           priorityText = "High";
         } else if (todo.priority === "2") {
